@@ -1,10 +1,9 @@
 "use client"
 
-import Image from "next/image";
 import Link from "next/link";
 import { IoSparklesSharp } from "react-icons/io5"
 import { usePathname } from "next/navigation"
-import { CalendarDays, Code, GanttChartSquare, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings } from "lucide-react"
+import { CalendarDays, Code, GanttChartSquare, LayoutDashboard, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import { Pacifico } from "next/font/google";
@@ -38,10 +37,10 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col h-full space-y-4 py-4 bg-gray-900 text-[--text] border-r border-white/5">
-      <div className="px-3 py-2 flex-1">
+    <div className="flex flex-col h-full space-y-4 py-4 border-r border-white/5">
+      <div className="px-3 py-2 flex-1 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-yellow-500">
         <Link href="/today" className="flex gap-1 items-center pl-3 mb-14">
-          <IoSparklesSharp />
+          <IoSparklesSharp className="text-yellow-200"/>
           <h1 className={cn("text-2xl font-bold", pacifico.className)} >
             Spargol
           </h1>
@@ -52,12 +51,12 @@ const Sidebar = () => {
               prefetch={false}
               href={route.href}
               key={route.href}
-              className={cn(`text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-lg transition hover:text-pink-400`,
-              pathname === route.href ? `text-pink-300 bg-white/10 hover:text-pink-400` : `text-zinc-400`
+              className={cn(`text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-lg transition hover:text-yellow-500`,
+              pathname === route.href ? `text-yellow-400 bg-white/10 hover:text-yellow-500` : `text-zinc-400`
               )}
             >
               <div className="flex items-center flex-1">
-                <route.icon className={cn("h-5 w-5 mr-3 text-pink-300")} />
+                <route.icon className={cn("h-5 w-5 mr-3 text-yellow-400")} />
                 {route.label}
               </div>
             </Link>
